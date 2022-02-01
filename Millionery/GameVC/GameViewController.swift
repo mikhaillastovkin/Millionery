@@ -7,7 +7,11 @@
 
 import UIKit
 
-class GameViewController: UIViewController {
+protocol GameViewDelegate: AnyObject {
+    func setLastResult(result: String, summ: String)
+}
+
+final class GameViewController: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var aAnswerButton: UIButton!
@@ -20,16 +24,20 @@ class GameViewController: UIViewController {
     @IBOutlet weak var cluePeopleHelpButton: UIButton!
 
     var questions = [Question]()
-    var activeQuestion = 0
-    var clueCount = 0
-    var selectedAnswer: Answer?
-    var countCorrectAnswer = 0
+    var gameSession = Game.shared.gameSession
     var answerSelected = false
+    var dateFomater: DateFormatter {
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "d MMM"
+        return dateFormater
+    }
+
+    weak var delegate: GameViewDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupQuestion()
-        getQuestion(number: activeQuestion)
+        getQuestion(number: gameSession.activeQuestion)
     }
 
     private func getQuestion(number: Int) {
@@ -49,7 +57,7 @@ class GameViewController: UIViewController {
 
     private func selectAnswer(answer: Answer) {
         if !answerSelected {
-            selectedAnswer = answer
+            gameSession.answerSelect = answer
             switch answer {
             case .a:
                 animationButton(aAnswerButton)
@@ -80,7 +88,7 @@ class GameViewController: UIViewController {
         UIView.animate(withDuration: 1, delay: 0) {
             selectedButton.backgroundColor = UIColor.orange
         } completion: { _ in
-            UIView.animate(withDuration: 1, delay: 2) {
+            UIView.animate(withDuration: 1, delay: 0.5) {
                 answerButton.backgroundColor = UIColor.green
             } completion: { _ in
                 UIView.animate(withDuration: 0.5, delay: 1) {
@@ -94,7 +102,7 @@ class GameViewController: UIViewController {
     }
 
     private func getCorrectAnswer() -> UIButton {
-        let correctAnswer = questions[activeQuestion].correctAnswer
+        let correctAnswer = questions[gameSession.activeQuestion].correctAnswer
         switch correctAnswer {
         case .a:
             return aAnswerButton
@@ -108,27 +116,37 @@ class GameViewController: UIViewController {
     }
 
     private func checkResult() {
-        if selectedAnswer == questions[activeQuestion].correctAnswer {
-            countCorrectAnswer += 1
-            activeQuestion += 1
+        if gameSession.answerSelect == questions[gameSession.activeQuestion].correctAnswer {
+            gameSession.countCorrectAnswer += 1
+            gameSession.currentSumm = questions[gameSession.activeQuestion].summ
+            gameSession.activeQuestion += 1
             enableButton(answer: [.a, .b, .c, .d])
-            getQuestion(number: activeQuestion)
+            getQuestion(number: gameSession.activeQuestion)
         } else {
             stopGame()
         }
     }
 
     private func stopGame() {
+        delegate?.setLastResult(
+            result: String(gameSession.countCorrectAnswer),
+            summ: gameSession.currentSumm)
+        let result = GameResult(date: dateFomater.string(from: .now),
+                                countCorrectAnswer: String(gameSession.countCorrectAnswer),
+                                summ: gameSession.currentSumm,
+                                countClues: String(gameSession.countClue))
+        Game.shared.addResult(result: result)
         var message = ""
-        switch activeQuestion {
+        switch gameSession.activeQuestion {
         case 0:
             message = "Спасибо за игру, вам не удалось ответить ни на один вопросов!"
+
         case 1:
-            message = "Спасибо за игру, вам удалось ответить на один вопрос! Вы заработали \(questions[activeQuestion - 1].summ) рублей!"
+            message = "Спасибо за игру, вам удалось ответить на один вопрос! Вы заработали \(gameSession.currentSumm) рублей!"
         case 2...4:
-            message = "Спасибо за игру, вам удалось ответить на \(countCorrectAnswer) вопроса! Вы заработали \(questions[activeQuestion - 1].summ) рублей!"
+            message = "Спасибо за игру, вам удалось ответить на \(gameSession.countCorrectAnswer) вопроса! Вы заработали \(gameSession.currentSumm) рублей!"
         case 5...questions.count - 1:
-            message = "Спасибо за игру, вам удалось ответить на \(countCorrectAnswer) вопросов! Вы заработали \(questions[activeQuestion - 1].summ) рублей!"
+            message = "Спасибо за игру, вам удалось ответить на \(gameSession.countCorrectAnswer) вопросов! Вы заработали \(gameSession.currentSumm) рублей!"
         default:
             message = "Спасибо за игру вам, удалось ответить на все вопросы! Вы заработали 1 000 000"
         }
@@ -141,10 +159,11 @@ class GameViewController: UIViewController {
         }
         alert.addAction(alertAction)
         present(alert, animated: true, completion: nil)
+
     }
 
     private func getClue50() {
-        let halfAnswer = questions[activeQuestion].halfAnswer
+        let halfAnswer = questions[gameSession.activeQuestion].halfAnswer
         disableAllButton()
         enableButton(answer: [halfAnswer.0, halfAnswer.1])
 
@@ -175,15 +194,15 @@ class GameViewController: UIViewController {
 
     private func getClueRing() {
         var message = "Друг говорит правильный ответ: "
-        switch questions[activeQuestion].helpFriend {
+        switch questions[gameSession.activeQuestion].helpFriend {
         case .a:
-            message += questions[activeQuestion].aAnswer
+            message += questions[gameSession.activeQuestion].aAnswer
         case .b:
-            message += questions[activeQuestion].bAnswer
+            message += questions[gameSession.activeQuestion].bAnswer
         case .c:
-            message += questions[activeQuestion].cAnswer
+            message += questions[gameSession.activeQuestion].cAnswer
         case .d:
-            message += questions[activeQuestion].dAnswer
+            message += questions[gameSession.activeQuestion].dAnswer
         }
         let alert = UIAlertController(
             title: "Звонок другу",
@@ -195,7 +214,7 @@ class GameViewController: UIViewController {
     }
 
     private func getCluePeopleHelp() {
-        let question = questions[activeQuestion]
+        let question = questions[gameSession.activeQuestion]
         let message = """
         Голоса распределились так:
         \(question.aAnswer) - \(question.helpPeople.0)%
@@ -227,17 +246,17 @@ class GameViewController: UIViewController {
 
     @IBAction func clue50ButtonPress(_ sender: Any) {
         clue50Button.isEnabled = false
-        clueCount -= 1
+        gameSession.countClue += 1
         getClue50()
     }
     @IBAction func clueRingButtonPress(_ sender: Any) {
         clueRingButton.isEnabled = false
-        clueCount -= 1
+        gameSession.countClue += 1
         getClueRing()
     }
     @IBAction func cluePeopleHelpPress(_ sender: Any) {
         cluePeopleHelpButton.isEnabled = false
-        clueCount -= 1
+        gameSession.countClue += 1
         getCluePeopleHelp()
     }
 
