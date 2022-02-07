@@ -10,6 +10,24 @@ import UIKit
 final class MainMenuViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
+
+    private var difficulty: Difficulty {
+        switch segmentControl.selectedSegmentIndex {
+        case 0:
+            return .normal
+        case 1:
+            return .shuffled
+        default:
+            return .normal
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Game.shared.startSetQuestion()
+    }
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goGameVC" {
@@ -19,7 +37,17 @@ final class MainMenuViewController: UIViewController {
     }
 
     @IBAction func pressStartButton(_ sender: Any) {
+        choiseStrategy()
         performSegue(withIdentifier: "goGameVC", sender: self)
+    }
+
+    private func choiseStrategy() {
+        switch difficulty {
+        case .normal:
+            Game.shared.strategy = EasyGameStrategy()
+        case .shuffled:
+            Game.shared.strategy = HardGameStrategy()
+        }
     }
 }
 

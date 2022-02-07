@@ -11,7 +11,7 @@ struct GameResult: Codable {
 
     let date: String
     let countCorrectAnswer: String
-    let summ: String
+    let summ: Int
     let countClues: String
 
 }

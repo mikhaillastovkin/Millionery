@@ -27,7 +27,7 @@ class ResultTableViewCell: UITableViewCell {
     func configureCell(result: GameResult) {
         dateLabel.text = result.date
         countCorrectAnswerLabel.text = result.countCorrectAnswer
-        summLabel.text = result.summ
+        summLabel.text = String(result.summ)
         countClueLabel.text = result.countClues
     }
     
