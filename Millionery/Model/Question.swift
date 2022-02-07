@@ -17,10 +17,11 @@ struct Question {
     let halfAnswer: (Answer, Answer)
     let helpFriend: Answer
     let helpPeople: (Int, Int, Int, Int)
-    let summ: String
+    let summ: Int
 
 }
 
-enum Answer {
+enum Answer: CaseIterable {
     case a, b, c, d
+
 }

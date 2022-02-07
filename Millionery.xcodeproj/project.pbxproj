@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7414558127A98F4000A96F01 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414558027A98F4000A96F01 /* Game.swift */; };
+		7414558327A98FC800A96F01 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414558227A98FC800A96F01 /* GameResult.swift */; };
+		7414558527A992BE00A96F01 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7414558427A992BE00A96F01 /* ResultsViewController.swift */; };
+		7418F8D027A83EC500458816 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7418F8CF27A83EC400458816 /* MainMenuViewController.swift */; };
+		741AE64227AD1873006FB9E5 /* Difficulty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741AE64127AD1873006FB9E5 /* Difficulty.swift */; };
+		741AE64627AD2087006FB9E5 /* AddQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741AE64527AD2086006FB9E5 /* AddQuestionViewController.swift */; };
+		742A352627AADE2B00E42461 /* GameStrategyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742A352527AADE2B00E42461 /* GameStrategyProtocol.swift */; };
+		742A352827AADEC200E42461 /* EasyGameStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742A352727AADEC200E42461 /* EasyGameStrategy.swift */; };
+		742A352A27AADFB800E42461 /* HardGameStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742A352927AADFB800E42461 /* HardGameStrategy.swift */; };
+		745D08B327B12C90000613B5 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D08B227B12C90000613B5 /* Observable.swift */; };
+		74A339A727A9940A00677AFA /* ResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A339A527A9940A00677AFA /* ResultTableViewCell.swift */; };
+		74A339A827A9940A00677AFA /* ResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74A339A627A9940A00677AFA /* ResultTableViewCell.xib */; };
+		74A339AB27A9A32700677AFA /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A339AA27A9A32700677AFA /* GameSession.swift */; };
 		74E3B71F27A5733D0058F4B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B71E27A5733D0058F4B2 /* AppDelegate.swift */; };
 		74E3B72127A5733D0058F4B2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B72027A5733D0058F4B2 /* SceneDelegate.swift */; };
 		74E3B72327A5733D0058F4B2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B72227A5733D0058F4B2 /* GameViewController.swift */; };
@@ -14,10 +27,22 @@
 		74E3B72827A5733E0058F4B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74E3B72727A5733E0058F4B2 /* Assets.xcassets */; };
 		74E3B72B27A5733E0058F4B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74E3B72927A5733E0058F4B2 /* LaunchScreen.storyboard */; };
 		74E3B73327A579550058F4B2 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B73227A579550058F4B2 /* Question.swift */; };
-		74E3B73527A57CB70058F4B2 /* ExtensionGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3B73427A57CB70058F4B2 /* ExtensionGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7414558027A98F4000A96F01 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		7414558227A98FC800A96F01 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		7414558427A992BE00A96F01 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		7418F8CF27A83EC400458816 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		741AE64127AD1873006FB9E5 /* Difficulty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Difficulty.swift; sourceTree = "<group>"; };
+		741AE64527AD2086006FB9E5 /* AddQuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionViewController.swift; sourceTree = "<group>"; };
+		742A352527AADE2B00E42461 /* GameStrategyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStrategyProtocol.swift; sourceTree = "<group>"; };
+		742A352727AADEC200E42461 /* EasyGameStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyGameStrategy.swift; sourceTree = "<group>"; };
+		742A352927AADFB800E42461 /* HardGameStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardGameStrategy.swift; sourceTree = "<group>"; };
+		745D08B227B12C90000613B5 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		74A339A527A9940A00677AFA /* ResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTableViewCell.swift; sourceTree = "<group>"; };
+		74A339A627A9940A00677AFA /* ResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultTableViewCell.xib; sourceTree = "<group>"; };
+		74A339AA27A9A32700677AFA /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
 		74E3B71B27A5733D0058F4B2 /* Millionery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74E3B71E27A5733D0058F4B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74E3B72027A5733D0058F4B2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +52,6 @@
 		74E3B72A27A5733E0058F4B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74E3B72C27A5733E0058F4B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74E3B73227A579550058F4B2 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		74E3B73427A57CB70058F4B2 /* ExtensionGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +65,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7414558627A992DA00A96F01 /* GameVC */ = {
+			isa = PBXGroup;
+			children = (
+				74E3B72227A5733D0058F4B2 /* GameViewController.swift */,
+			);
+			path = GameVC;
+			sourceTree = "<group>";
+		};
+		7414558727A992F400A96F01 /* MainMenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				7418F8CF27A83EC400458816 /* MainMenuViewController.swift */,
+			);
+			path = MainMenuVC;
+			sourceTree = "<group>";
+		};
+		7414558827A9931000A96F01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74E3B73227A579550058F4B2 /* Question.swift */,
+				7414558227A98FC800A96F01 /* GameResult.swift */,
+				74A339AA27A9A32700677AFA /* GameSession.swift */,
+				741AE64127AD1873006FB9E5 /* Difficulty.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7414558927A9932700A96F01 /* ResultsVC */ = {
+			isa = PBXGroup;
+			children = (
+				7414558427A992BE00A96F01 /* ResultsViewController.swift */,
+				74A339A927A9940F00677AFA /* Cell */,
+			);
+			path = ResultsVC;
+			sourceTree = "<group>";
+		};
+		741AE64427AD2054006FB9E5 /* AddQuestionVC */ = {
+			isa = PBXGroup;
+			children = (
+				741AE64527AD2086006FB9E5 /* AddQuestionViewController.swift */,
+			);
+			path = AddQuestionVC;
+			sourceTree = "<group>";
+		};
+		742A352427AADE0300E42461 /* Strategy */ = {
+			isa = PBXGroup;
+			children = (
+				742A352527AADE2B00E42461 /* GameStrategyProtocol.swift */,
+				742A352727AADEC200E42461 /* EasyGameStrategy.swift */,
+				742A352927AADFB800E42461 /* HardGameStrategy.swift */,
+			);
+			path = Strategy;
+			sourceTree = "<group>";
+		};
+		74A339A927A9940F00677AFA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				74A339A527A9940A00677AFA /* ResultTableViewCell.swift */,
+				74A339A627A9940A00677AFA /* ResultTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		74E3B71227A5733D0058F4B2 = {
 			isa = PBXGroup;
 			children = (
@@ -62,10 +149,15 @@
 			children = (
 				74E3B71E27A5733D0058F4B2 /* AppDelegate.swift */,
 				74E3B72027A5733D0058F4B2 /* SceneDelegate.swift */,
-				74E3B72227A5733D0058F4B2 /* GameViewController.swift */,
-				74E3B73427A57CB70058F4B2 /* ExtensionGameViewController.swift */,
+				745D08B227B12C90000613B5 /* Observable.swift */,
+				7414558027A98F4000A96F01 /* Game.swift */,
+				741AE64427AD2054006FB9E5 /* AddQuestionVC */,
+				742A352427AADE0300E42461 /* Strategy */,
+				7414558627A992DA00A96F01 /* GameVC */,
+				7414558727A992F400A96F01 /* MainMenuVC */,
+				7414558927A9932700A96F01 /* ResultsVC */,
+				7414558827A9931000A96F01 /* Model */,
 				74E3B72427A5733D0058F4B2 /* Main.storyboard */,
-				74E3B73227A579550058F4B2 /* Question.swift */,
 				74E3B72727A5733E0058F4B2 /* Assets.xcassets */,
 				74E3B72927A5733E0058F4B2 /* LaunchScreen.storyboard */,
 				74E3B72C27A5733E0058F4B2 /* Info.plist */,
@@ -133,6 +225,7 @@
 			files = (
 				74E3B72B27A5733E0058F4B2 /* LaunchScreen.storyboard in Resources */,
 				74E3B72827A5733E0058F4B2 /* Assets.xcassets in Resources */,
+				74A339A827A9940A00677AFA /* ResultTableViewCell.xib in Resources */,
 				74E3B72627A5733D0058F4B2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,10 +237,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745D08B327B12C90000613B5 /* Observable.swift in Sources */,
+				742A352827AADEC200E42461 /* EasyGameStrategy.swift in Sources */,
+				74A339AB27A9A32700677AFA /* GameSession.swift in Sources */,
+				741AE64227AD1873006FB9E5 /* Difficulty.swift in Sources */,
+				7418F8D027A83EC500458816 /* MainMenuViewController.swift in Sources */,
 				74E3B72327A5733D0058F4B2 /* GameViewController.swift in Sources */,
-				74E3B73527A57CB70058F4B2 /* ExtensionGameViewController.swift in Sources */,
+				7414558127A98F4000A96F01 /* Game.swift in Sources */,
+				7414558327A98FC800A96F01 /* GameResult.swift in Sources */,
+				7414558527A992BE00A96F01 /* ResultsViewController.swift in Sources */,
 				74E3B73327A579550058F4B2 /* Question.swift in Sources */,
+				741AE64627AD2087006FB9E5 /* AddQuestionViewController.swift in Sources */,
+				742A352627AADE2B00E42461 /* GameStrategyProtocol.swift in Sources */,
 				74E3B71F27A5733D0058F4B2 /* AppDelegate.swift in Sources */,
+				742A352A27AADFB800E42461 /* HardGameStrategy.swift in Sources */,
+				74A339A727A9940A00677AFA /* ResultTableViewCell.swift in Sources */,
 				74E3B72127A5733D0058F4B2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
